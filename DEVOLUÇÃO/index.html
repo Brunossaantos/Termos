@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Termo de Devolução de Equipamentos</title>
+
+  <style>
+
+    /*css*/
+    /*Layout Geral*/
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 21cm;
+      margin: 0 auto;
+      background: white;
+      padding: 0.5cm;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    /*Cabeçalho*/
+    .custom-header {
+      margin-bottom: 2rem;
+    }
+
+    .header-content-wrapper {
+      display: flex;
+      border: 1px solid #000;
+      width: 98%;
+      max-width: 900px;
+    }
+
+    .header-main-content {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border-right: 1px solid #000;
+    }
+
+    .logo-container img,
+    .udlog-logo img {
+      max-height: 40px;
+      width: auto;
+    }
+
+    .guibor-logo img {
+      max-height: 60px;
+      width: auto;
+    }
+
+    .title-container {
+      text-align: center;
+      color: #005a9c;
+      font-weight: bold;
+      font-size: 0.8rem;
+      line-height: 1.1;
+    }
+
+    .title-text {
+      font-size: 0.75rem;
+    }
+
+     /*Tabela de Informações*/
+    .info-table {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.65rem;
+    }
+
+    .info-table div {
+      border: 0.1px solid #00000073;
+      padding: 0.15rem 0.5rem;
+    }  
+    .form-section {
+      margin-bottom: 0.6rem;
+    }
+
+    /*Declaração e Itens*/
+    .declaration-section {
+      font-size: 0.8rem;
+    }
+
+    .declaration-line-1 {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      gap: 0.3rem;
+      align-items: baseline;
+    }
+
+    .declaration-line-2 {
+      margin-top: 0.2rem;
+    }
+
+    .items-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0;
+      columns: 2;
+      gap: 10rem;
+    }
+
+    .items-list label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    /*Campos de Entrada*/
+    input[type="text"],
+    textarea {
+      width: 90%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      box-sizing: border-box;
+    }
+
+    .date-section {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      justify-content: center;
+    }
+
+    .date-section .input-wrapper input {
+      text-align: center;
+    }
+
+    .user-data-table {
+      width: 100%;
+      font-size: 0.9rem;
+      border-collapse: collapse;
+    
+    }
+
+    .user-data-table td {
+      padding: 6px 5px ;
+      border: none;
+    }
+
+    .user-data-table td:first-child {
+      font-weight: bold;
+      font-size: 1rem;
+      width: 100px;
+    }
+
+    /* Assinatura*/
+    .signature-section {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+    }
+
+    .signature-canvas {
+      border: 1px solid #333;
+      border-radius: 8px;
+   }
+
+    .footer {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    /*Botões e Impressão*/
+    .action-button {
+      background-color: #0400ff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    @media print {
+      body {
+        background-color: white !important;
+        padding: 0;
+        margin: 0;
+      }
+    .no-print {
+        display: none !important;
+      }
+
+      .container {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+ 
+</head>
+<body>
+  <div class="container" id="printable-area">
+    <!-- Cabeçalho com logos e dados do documento -->
+    <header class="custom-header">
+      <div class="header-content-wrapper">
+        <div class="header-main-content">
+          <div class="udlog-logo">
+            <img src="https://i.postimg.cc/sgCdvkCZ/udlog.png" alt="Logo UDLOG">
+          </div>
+          <div class="title-container">
+            <div class="title-text">TERMO DE DEVOLUÇÃO DE</div>
+            <div class="title-text">EQUIPAMENTOS</div>
+            <div class="title-text">DE TI E COMUNICAÇÃO</div>
+          </div>
+          <div class="guibor-logo">
+            <img src="https://i.postimg.cc/P51HytQ4/guibor.png" alt="Logo Guibor">
+          </div>
+        </div>
+        <div class="info-table">
+          <div>Código: FO.TI.007</div>
+          <div>Revisão: 03 </div>
+          <div>Data: 12/08/2025 </div>
+          <div>Responsável: T.I.</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Declaração do colaborador -->
+    <section class="form-section declaration-section">
+      <div class="declaration-line-1">
+        <span>Eu,</span><input style="width: 320px" type="text">
+        <span>, por motivo de</span><input style="width: 280px" type="text">
+      </div>
+      <p class="declaration-line-2">estou devolvendo à Empresa os itens mencionados abaixo:</p>
+    </section>
+
+    <!-- Lista de itens -->
+    <section class="form-section">
+      <ul class="items-list">
+        <li><label><input type="checkbox"> Coletor </label></li>
+        <li><label><input type="checkbox"> Rádio </label></li>
+        <li><label><input type="checkbox"> Desktop/Notebook </label></li>
+        <li><label><input type="checkbox"> Celular/Tablet </label></li>
+      </ul>
+      <label class="other-label"><input type="checkbox"><span>Outros</span> <input style="width: 300px" type="text" class="input-line"></label>
+      <span> Patrimônio </span>
+      <input type="text"
+      name="patrimonio"
+      id="patrimonio"
+      style="width: 70px" type="text" >
+    </section>
+
+    <!-- Observação -->
+    <section class="form-section">
+        <label for="observacao">Observação:</label>
+        <div id="observacao" contenteditable="true"
+        style="width: 96%; min-width: 300px; min-height: 70px; border: 1px solid #ccc; padding: 8px; white-space: pre-wrap;">
+        </div>
+    </section>
+
+     <!-- Data -->
+    <section class="form-section date-section">
+      <div class="input-wrapper"><input style="width: 130px" type="text" placeholder=""></div>
+      <span>,</span>
+      <div class="input-wrapper"><input style="width: 80px" type="text" placeholder=""></div>
+      <span>de</span>
+      <div class="input-wrapper"><input style="width: 120px" type="text" placeholder=""></div>
+      <span>de</span>
+      <div class="input-wrapper"><input style="width: 100px" type="text" placeholder=""></div>
+    </section>
+
+    <!-- Dados do colaborador -->
+    <section class="form-section">
+      <table class="user-data-table">
+        <tr><td>Usuário:</td>
+          <td><input style="width: 500px"
+             type="text"
+             name="nomeFuncionario"
+             id="nomeFuncionario"/>
+            </td>
+            </tr>
+        <tr><td>Cargo:</td><td><input style="width: 500px" type="text"></td></tr>
+        <tr><td>Departamento:</td><td><input style="width: 500px" type="text"></td></tr>
+        <tr><td>Localidade:</td><td><input style="width: 500px" type="text"></td></tr>
+        <tr><td>Centro de custo:</td><td><input style="width: 500px" type="text"></td></tr>
+      </table>
+    </section>
+
+    <!-- Dados do recebedor -->
+    <section class="form-section">
+      <table class="user-data-table">
+        <tr><td colspan="2" style="font-weight: bold; text-align: left; padding-left: 250px;">Recebido por (Área de TI)</td></tr>
+        <tr><td>Nome:</td><td><input style="width: 475px" type="text"></td></tr>
+        <tr><td>Cargo:</td><td><input style="width: 475px" type="text"></td></tr>
+      </table>
+    </section>
+
+
+<!-- Assinatura do Usuário -->
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; margin-top: 0px;">
+  <!-- Assinatura do Usuário -->
+  <div style="text-align: center;">
+    <p><strong>Assinatura do Usuário</strong></p>
+    <div
+     style="
+        border: 1px solid #000;
+        width: 355px;
+        height: 146px;
+        background-color: #fff;
+        box-sizing: border-box;
+      "
+    >
+      <canvas
+        id="AssinaturaUsuario"
+        width="340"
+        height="130"
+        style="display: block; touch-action: none; user-select: none; border: none;"
+      ></canvas>
+    </div>
+    <button
+      type="button"
+      onclick="limparCanvas('AssinaturaUsuario')"
+      class="action-button no-print"
+      style="margin-top: 10px;"
+    >
+      Limpar
+    </button>
+  </div>
+
+  <!-- Assinatura do Recebedor -->
+  <div style="text-align: center;">
+    <p><strong>Assinatura do Recebedor</strong></p>
+    <div
+    style="
+        border: 1px solid #000;
+        width: 355px;
+        height: 146px;
+        background-color: #fff;
+        box-sizing: border-box;
+      "
+    >
+      <canvas
+        id="AssinaturaRecebedor"
+        width="340px"
+        height="130px"
+        style="display: block; touch-action: none; user-select: none; border: none;"
+        
+      ></canvas>
+          </div>
+          
+          <button
+            type="button"
+            onclick="limparCanvas('AssinaturaRecebedor')"
+            class="action-button no-print"
+            style="margin-top: 10px;"
+          >
+            Limpar
+          </button>
+        </div>
+      </div>
+
+
+ <!--E-mail usuario-->      
+<div class="no-print"
+ style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px;" >
+  <label for="email_colaborador" style="font-weight: bold; color: #333;">
+    E-mail do colaborador:
+  </label>
+  <input
+    type="email"
+    id="email_colaborador"
+    name="email_colaborador"
+    style="
+      width: 100%;
+      width: 150px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+       text-align: center;
+    "
+    required
+  />
+
+
+      <!-- Botão PDF -->
+      <div class="footer no-print">
+        <button id="print-button" class="action-button">Enviar por e-mail</button>
+      </div>
+    </div>
+
+  
+<script>
+
+    const printButton = document.getElementById('print-button');
+
+    printButton.addEventListener('click', function () {
+     //Desativa o botão após o clique
+    printButton.disabled = true;
+    printButton.innerText = 'Enviando...';
+    });
+
+
+          // javascript
+//configurarAssinatura(idCanvas)
+function configurarAssinatura(idCanvas) {
+  const canvas = document.getElementById(idCanvas);
+  const ctx = canvas.getContext("2d");
+  let desenhando = false;
+
+  function getPos(evt) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
+
+  canvas.addEventListener("mousedown", e => {
+    desenhando = true;
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+  });
+
+  canvas.addEventListener("mousemove", e => {
+    if (!desenhando) return;
+    const pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+  });
+
+  canvas.addEventListener("mouseup", () => desenhando = false);
+  canvas.addEventListener("mouseleave", () => desenhando = false);
+
+  canvas.addEventListener("touchstart", e => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const pos = getPos(touch);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+    desenhando = true;
+  });
+
+  canvas.addEventListener("touchmove", e => {
+    e.preventDefault();
+    if (!desenhando) return;
+    const touch = e.touches[0];
+    const pos = getPos(touch);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+  });
+
+  canvas.addEventListener("touchend", () => desenhando = false);
+}
+
+//limparCanvas(idCanvas)
+function limparCanvas(idCanvas) {
+  const canvas = document.getElementById(idCanvas);
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+//Ao carregar a página, inicializa as áreas de assinatura
+window.addEventListener('load', () => {
+  configurarAssinatura("AssinaturaUsuario");
+  configurarAssinatura("AssinaturaRecebedor");
+});
+
+// gerar PDF
+function gerarPDF() {
+  const formClone = document.getElementById('printable-area').cloneNode(true);
+
+  formClone.querySelectorAll('input, textarea').forEach(el => {
+    if (el.type === 'checkbox') {
+      if (el.checked) el.setAttribute('checked', 'checked');
+      else el.removeAttribute('checked');
+    } else if (el.tagName === 'TEXTAREA' || el.type === 'text') {
+      el.setAttribute('value', el.value);
+    }
+  });
+
+  
+  const AssinaturaUsuario = document.getElementById('AssinaturaUsuario').toDataURL();
+  const AssinaturaRecebedor = document.getElementById('AssinaturaRecebedor').toDataURL();
+
+  const sig1 = document.createElement('img');
+  sig1.src = AssinaturaUsuario;
+  sig1.style.marginTop = '8px';
+
+  const sig2 = document.createElement('img');
+  sig2.src = AssinaturaRecebedor;
+  sig2.style.marginTop = '8px';
+
+  formClone.querySelector('#AssinaturaUsuario').replaceWith(sig1);
+  formClone.querySelector('#AssinaturaRecebedor').replaceWith(sig2);
+
+  const finalHtml = `<!DOCTYPE html><html><head><meta charset='utf-8'><style>${document.querySelector('style').innerHTML}</style></head><body>${formClone.outerHTML}</body></html>`;
+
+  const nomeFuncionario = document.getElementById("nomeFuncionario")?.value || "Funcionario";
+  const patrimonio = document.getElementById("patrimonio")?.value || "0000";
+  const emailColaborador = document.getElementById("email_colaborador")?.value || "";
+
+        fetch("gerar_pdf_browsershot.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            html: finalHtml,
+            nome_funcionario: nomeFuncionario,
+            patrimonio: patrimonio,
+            email_colaborador: emailColaborador
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "ok") {
+              Swal.fire({
+                icon: "success",
+                title: "PDF GERADO E ENVIADO!",
+                text: "O termo foi salvo e enviado por e-mail com sucesso.",
+                confirmButtonText: "OK",
+              }).then(() => {
+          // Quando o usuário fechar o popup:
+          printButton.disabled = false;
+          printButton.innerText = "Enviar por e-mail";
+          });
+            } else {
+              throw new Error("Erro na geração ou envio do PDF.");
+            }
+          })
+          
+          .catch((error) => {
+            console.error(error);
+            Swal.fire({
+              icon: "error",
+              title: "Erro",
+              text: "Ocorreu um erro ao gerar ou enviar o PDF.",
+              confirmButtonText: "OK",
+            });
+          });         
+      }
+       
+
+      document
+        .getElementById("print-button")
+        .addEventListener("click", gerarPDF);
+    </script>
+  </body>
+</html>
