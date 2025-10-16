@@ -1,7 +1,0 @@
-{
-    "require": {
-        "dompdf/dompdf": "^3.1",
-        "spatie/browsershot": "^5.0",
-        "phpmailer/phpmailer": "^6.10"
-    }
-}

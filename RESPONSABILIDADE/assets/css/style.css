@@ -1,0 +1,355 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 1rem;
+}
+
+.a4-sheet {
+  background: #fff;
+  width: 21cm;
+  min-height: 29.7cm;
+  margin: 2rem auto;
+  box-shadow: 0 0 16px 2px #bbb;
+  border-radius: 6px;
+  padding: 1.5cm 1.2cm;
+  box-sizing: border-box;
+}
+
+@media print {
+  .a4-sheet {
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0.5cm;
+    width: 100%;
+  }
+
+  body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* ESTILOS DO CABEÇALHO */
+.custom-header {
+  page-break-inside: avoid;
+  margin-bottom: 2rem;
+}
+
+.header-content-wrapper {
+  display: flex;
+  /* Posiciona o conteúdo principal e a tabela de informações lado a lado */
+  border: 1px solid #000;
+  /* A borda única ao redor de tudo */
+  width: 97%;
+  /* Defina a largura desejada (ex.: 60%) */
+  max-width: 900px;
+}
+
+.header-main-content {
+  flex-grow: 1;
+  /* Ocupa o espaço disponível */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  /* Adiciona espaçamento interno */
+  border-right: 1px solid #000;
+  /* Linha vertical separadora */
+}
+
+.custom-header .logo-container img {
+  max-height: 45px;
+  width: auto;
+}
+
+.custom-header .title-container {
+  text-align: center;
+  color: #005a9c;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.custom-header .title-text {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #005a9c;
+}
+
+.custom-header .udlog-logo img {
+  max-height: 50px;
+  width: auto;
+}
+
+.custom-header .guibor-logo img {
+  max-height: 80px;
+  width: auto;
+}
+
+.custom-header .info-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-header .info-table div {
+  flex-grow: 1;
+  /* Faz cada linha ocupar a mesma altura */
+  display: flex;
+  align-items: center;
+  /* Centraliza o texto verticalmente */
+  border: none;
+  border-bottom: 1px solid #000;
+  /* Linhas separadoras internas */
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  min-width: 110px;
+  /* Ajuste de largura */
+  box-sizing: border-box;
+}
+
+.custom-header .info-table div:last-child {
+  border-bottom: none;
+  /* Remove a borda do último item */
+}
+
+.intro-text {
+  font-size: 1rem;
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+fieldset {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+legend {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+
+label,
+.label-title {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.checkbox-group label {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.checkbox-group .other-label {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.line-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.chip-options-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chip-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.chip-options label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.line-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#linha {
+  width: 120px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-format {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 2rem;
+  box-sizing: border-box;
+  letter-spacing: 13px;
+  text-transform: uppercase;
+}
+
+.input-line {
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.clauses p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-align: justify;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.digit-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.digit-input {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.simm-separator {
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.mac-address-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mac-address-group .mac-input {
+  width: 40px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.mac-address-group .mac-separator {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ESTILOS PARA A PÁGINA 2 */
+canvas {
+  display: block;
+  touch-action: none;
+  background: #fff;
+  border: 2px solid #000;
+  touch-action: none;
+  user-select: none;
+
+}
+
+.user-data-table {
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+
+}
+
+.user-data-table td {
+  border: 1px solid #ccc;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.user-data-table td:first-child {
+  font-weight: bold;
+  width: 150px;
+  border: 1px solid #ccc;
+}
+
+.signature-section {
+  display: flex;
+  flex-direction:row ; /* Alinha os elementos verticalmente */
+  gap: 40px; /* Espaçamento entre as assinaturas */
+  margin-top: 20px;
+}
+
+.assinatura-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre o título, canvas e botão */
+}

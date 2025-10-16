@@ -1,0 +1,199 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      max-width: 100%;
+      background-color: #f4f4f4;
+    
+    }
+
+    .container {
+      max-width: 21cm; /* Largura da folha A4 */
+      margin: 0 auto;
+      background: white;
+      padding: 1.2cm;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      
+    }
+    
+h1, h3 {
+  text-align: left;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  color: #003366;
+}
+li {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+ol {
+  padding-left: 0rem;
+}
+
+ul {
+  padding-left: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.field-group {
+  margin-top: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+input[type="text"], input[type="date"] {
+  width: 100%;
+  padding: 6px;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+    .custom-header {
+      margin-bottom: 2rem;
+    }
+
+    .header-content-wrapper {
+      display: flex;
+      border: 1px solid #000;
+      width: 97%;
+      max-width: 900px;
+    }
+
+    .header-main-content {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      border-right: 1px solid #000;
+    }
+
+    .custom-header .logo-container img {
+      max-height: 45px;
+      width: auto;
+    }
+
+    .custom-header .title-container {
+      text-align: center;
+      color: #005a9c;
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+
+    .custom-header .title-text {
+      font-weight: bold;
+      font-size: 0.8rem;
+      color: #005a9c;
+    }
+
+    .custom-header .udlog-logo img {
+      max-height:50px;
+      width: auto;
+    }
+
+    .custom-header .info-table {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .custom-header .info-table div {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #000;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.78rem;
+      min-width: 110px;
+      box-sizing: border-box;
+    }
+
+    .custom-header .info-table div:last-child {
+      border-bottom: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .field-group {
+      margin-top: 10px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 3px;
+    }
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    canvas {
+      border: 1px solid #000;
+      margin-top: 1px;
+    }
+    .action-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+    .btn {
+      margin-top: 2px;
+      padding: 8px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+    }
+
+
+    @media print {
+        body, html {
+        margin: 0;
+        padding: 0;
+        width: 230mm;
+        height: 297mm;
+        background-color: white;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+        padding: 1.5cm;
+      }
+
+      header, h2, label, input, textarea {
+        color: #000 !important;
+      }
+    }
