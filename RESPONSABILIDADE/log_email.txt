@@ -1,1 +1,21 @@
+The command ""C:\Program Files\nodejs\node.exe" "C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\vendor\spatie\browsershot\src/../bin/browser.cjs" "{""url"":""file:\/\/C:\\Windows\\TEMP\\1274122964-0727585001759176878\\index.html"",""action"":""pdf"",""options"":{""path"":""C:\\xampp\\htdocs\\TERMOS\\RESPONSABILIDADE\/pdfs\/Termo_Humberto Pimentel _1769.pdf"",""args"":[""--no-sandbox""],""viewport"":{""width"":800,""height"":600},""displayHeaderFooter"":false,""executablePath"":""C:\\Users\\bruno.carvalho\\.cache\\puppeteer\\chrome\\win64-138.0.7204.168\\chrome-win64\\chrome.exe"",""format"":""A4"",""margin"":{""top"":""5mm"",""right"":""5mm"",""bottom"":""5mm"",""left"":""5mm""},""printBackground"":true}}"" failed.
 
+Exit Code: 1(General error)
+
+Working directory: C:\xampp\htdocs\TERMOS\RESPONSABILIDADE
+
+Output:
+================
+
+
+Error Output:
+================
+TimeoutError: Navigation timeout of 30000 ms exceeded
+    at new Deferred (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:60:34)
+    at Deferred.create (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:21:16)
+    at new LifecycleWatcher (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Frame.js:149:29)
+    at CdpFrame.<anonymous> (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\util\decorators.js:109:27)
+    at CdpPage.goto (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:574:43)
+    at callChrome (C:\xampp\htdocs\TERMOS\RESPONSABILIDADE\vendor\spatie\browsershot\bin\browser.cjs:276:37)
+ERRO: o processo "11096" n∆o foi encontrado.

@@ -15,7 +15,7 @@ function enviarTermoPorEmail($caminhoCompleto, $destinatario, $nome = ''){
     $mail->Host       = 'smtplw.com.br';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'udlog'; // usuário SMTP
-    $mail->Password   = 'Ti2020@#'; // senha SMTP
+    $mail->Password   = 'Udlog3pt4af#'; // senha SMTP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
